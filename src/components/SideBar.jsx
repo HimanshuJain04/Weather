@@ -13,8 +13,8 @@ function SideBar() {
   return (
     <div
       className={
-        `flex flex-col justify-start rounded-2xl py-5 px-3 items-center ` +
-        (mode === "Light" ? " bg-white" : " bg-[#2A2E32]")
+        `flex flex-col justify-start rounded-2xl h-[80vh] py-5 px-3 items-center ` +
+        (mode === "Light" ? " bg-white" : " bg-[#202B3B]")
       }
     >
       {/*Wind LOGO */}
@@ -29,8 +29,7 @@ function SideBar() {
           (mode === "Light" ? " text-[black]/[0.4] " : " text-[white]/[0.4]")
         }
       >
-        <Link
-          to="/"
+        <button
           onClick={() => {
             setSelectOption("Weather");
           }}
@@ -38,9 +37,9 @@ function SideBar() {
             `flex gap-1 flex-col items-center cursor-pointer transition-all duration-200 ease-in` +
             (mode === "Light"
               ? " hover:text-[#4D5BE4]"
-              : " hover:text-[white]") + (selectOption === "Weather" ? (mode === "light"? " text-[#4D5BE4]"
+              : " hover:text-[white]") + (selectOption === "Weather" ? (mode === "light" ? " text-[#4D5BE4]"
                 : " text-white")
-              : "")
+                : "")
           }
         >
           <FaCloudSunRain
@@ -51,10 +50,9 @@ function SideBar() {
 
           <p>Weather</p>
 
-        </Link>
+        </button>
 
-        <Link
-          to="/cities"
+        <button
           onClick={() => {
             setSelectOption("Cities");
           }}
@@ -72,10 +70,9 @@ function SideBar() {
             }
           ></FaCity>
           <p>Cities</p>
-        </Link>
+        </button>
 
-        <Link
-          to="/map"
+        <button
           onClick={() => {
             setSelectOption("Map");
           }}
@@ -93,10 +90,9 @@ function SideBar() {
             }
           ></BsFillMapFill>
           <p>Map</p>
-        </Link>
+        </button>
 
-        <Link
-          to="setting"
+        <button
           onClick={() => {
             setSelectOption("Setting");
           }}
@@ -112,7 +108,8 @@ function SideBar() {
             className={`text-2xl` + (mode === "Light" ? " text-[#30377B]" : "")}
           ></RiListSettingsLine>
           <p>Setting</p>
-        </Link>
+        </button>
+
       </div>
     </div>
   );

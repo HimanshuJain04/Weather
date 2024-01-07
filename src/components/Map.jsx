@@ -1,7 +1,7 @@
 import React from "react";
 
-function MapPage() {
+function Map() {
   return <>Map Page</>
 }
 
-export default MapPage;
+export default Map;

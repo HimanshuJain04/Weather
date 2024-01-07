@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Context } from "../context";
 import { useContext } from "react";
 
-function SettingPage() {
+function Setting() {
   const { mode, setMode } = useContext(Context);
 
   function modeHandler() {
@@ -20,29 +20,29 @@ function SettingPage() {
       </p>
       <div className="flex flex-col justify-start items-start p-10">
 
-        <div className={'flex justify-center items-center gap-10 rounded-full py-5 px-10 '+ (mode === "Light" ? " bg-white " : " bg-[#2A2E32]")}>
+        <div className={'flex justify-center items-center gap-10 rounded-full py-5 px-10 ' + (mode === "Light" ? " bg-white " : " bg-[#2A2E32]")}>
           <p className="font-bold text-xl">LIGHT/DARK THEME</p>
-         {/* Toggle Button */}
+          {/* Toggle Button */}
           <div className=" w-[300px] h-[100px] flex justify-center items-center">
             <div className="bg-[black]/[0.2] relative w-[200px] h-[50px] rounded-3xl ">
-              <div
+              <button
                 onClick={modeHandler}
                 className={
                   `absolute text-black cursor-pointer ease-in transition-all duration-500 flex justify-center h-[50px] w-[130px] items-center rounded-3xl shadow-2xl ` +
                   (mode === "Light" ? " bg-[white] left-[0%]" : " bg-[#34323D] left-[35%]")
                 }
               >
-                <p className={`font-semibold`+(mode === "Light" ? " text-black " : " text-white")}>
+                <p className={`font-semibold` + (mode === "Light" ? " text-black " : " text-white")}>
                   {mode === "Light" ? "Light" : "Dark "}
                 </p>
-              </div>
+              </button>
             </div>
           </div>
         </div>
-       
+
       </div>
     </div>
   );
 }
 
-export default SettingPage;
+export default Setting;

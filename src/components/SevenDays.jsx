@@ -19,8 +19,8 @@ function SevenDays() {
   return (
     <div
       className={
-        ` rounded-2xl p-8 flex flex-col text-sm text-[white]/[0.4] mt-14 font-semibold` +
-        (mode === "Light" ? " bg-white" : " bg-[#2A2E32]")
+        ` rounded-2xl p-8 flex flex-col text-sm text-[white]/[0.4] h-full w-[300px] mt-14 font-semibold` +
+        (mode === "Light" ? " bg-white" : " bg-[#202B3B]")
       }
     >
       <p className="text-[white]/[0.8] font-bold">
@@ -38,11 +38,11 @@ function SevenDays() {
               <>Today</>
             ) : (
               weekday[
-                new Date(
-                  `${item?.date?.substring(5, 7)}/
+              new Date(
+                `${item?.date?.substring(5, 7)}/
                     ${item?.date?.substring(8)}/
                     ${item?.date?.substring(0, 4)}`
-                ).getDay()
+              ).getDay()
               ]
             )}
           </p>

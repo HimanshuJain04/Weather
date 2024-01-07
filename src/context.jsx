@@ -5,48 +5,39 @@ import FetchDataFromApi from "./Api/fetchDataFromApi";
 export const Context = createContext();
 
 const AppContext = ({ children }) => {
-  const [search, setSearch] = useState("London");
-  const [error, setError] = useState(false);
+  const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectOption, setSelectOption] = useState("Weather");
   const [mode, setMode] = useState("Dark");
 
-  async function searchHandler() {
+  async function searchHandler(search) {
+    console.log("length : ", search.length)
 
-    if (search !== "") {
-      setLoading(true);
-      const res = await FetchDataFromApi(search);
-
-      if (res === "error") {
-        setError(true);
-        setData([]);
-      } else {
-        setError(false);
-        setData(res);
-      }
-      setLoading(false);
-    } else {
-      console.log("Khaili hai");
+    if (search.length > 1) {
+      await FetchDataFromApi(search)
+        .then((res) => {
+          setData(res)
+        })
+        .catch((err) => {
+          console.log("error : ", err);
+          setData([]);
+        });
     }
   }
-
-  console.log(data);
 
   return (
     <Context.Provider
       value={{
         setSearch,
+        searchHandler,
         search,
-        error,
-        setError,
         mode,
         setMode,
         data,
         setData,
         loading,
         setLoading,
-        searchHandler,
         selectOption,
         setSelectOption,
       }}
